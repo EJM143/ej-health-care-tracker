@@ -12,7 +12,7 @@
 import React, { useContext } from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { AuthProvider, AuthContext } from '../AuthContext.jsx';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 
 // Mock the Firebase Authentication
 jest.mock('firebase/auth', () => ({
@@ -34,10 +34,9 @@ describe('AuthContext', () => {
   });
 
   test('should provide user when authenticated', async () => {
-    // Mock the Firebase auth state to simulate a logged-in user
     onAuthStateChanged.mockImplementationOnce((auth, callback) => {
-      callback(mockUser); // Simulate user logged in
-      return jest.fn(); // Mock the unsubscribe function
+      callback(mockUser); 
+      return jest.fn(); 
     });
 
     render(
@@ -47,16 +46,14 @@ describe('AuthContext', () => {
     );
 
     await waitFor(() => {
-      // Check if the user is logged in and the email is displayed
       expect(screen.getByText(`Hello, ${mockUser.email}`)).toBeInTheDocument();
     });
   });
 
   test('should provide null user when not authenticated', async () => {
-    // Mock the Firebase auth state to simulate no user logged in
     onAuthStateChanged.mockImplementationOnce((auth, callback) => {
-      callback(null); // Simulate no user logged in
-      return jest.fn(); // Mock the unsubscribe function
+      callback(null); 
+      return jest.fn(); 
     });
 
     render(
@@ -75,7 +72,7 @@ describe('AuthContext', () => {
     // Mock the Firebase auth state to simulate a loading state
     onAuthStateChanged.mockImplementationOnce((auth, callback) => {
       // Simulate loading without providing a user
-      return jest.fn(); // Mock the unsubscribe function
+      return jest.fn(); 
     });
 
     render(
@@ -84,7 +81,6 @@ describe('AuthContext', () => {
       </AuthProvider>
     );
 
-    // Check if the loading state is shown
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 });

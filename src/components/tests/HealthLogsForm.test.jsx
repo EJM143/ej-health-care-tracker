@@ -8,11 +8,11 @@
  *    The `saveHealthLog` function and form behaviors are mocked for isolated testing.
  */
 
+import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import HealthLogsForm from '../HealthLogsForm.jsx';
 import { saveHealthLog } from '../../firebaseFunctions';
 
-// Mock the saveHealthLog function
 jest.mock('../../firebaseFunctions', () => ({
   saveHealthLog: jest.fn(),
 }));
@@ -25,7 +25,6 @@ describe('HealthLogsForm', () => {
   test('renders Health Log Form correctly', () => {
     render(<HealthLogsForm />);
 
-    // Check if the form elements are rendered
     expect(screen.getByLabelText(/Date of Log/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Symptoms/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Blood Pressure/i)).toBeInTheDocument();
@@ -39,7 +38,6 @@ describe('HealthLogsForm', () => {
   test('submits the form with the correct data', async () => {
     render(<HealthLogsForm />);
 
-    // Fill in the form fields
     fireEvent.change(screen.getByLabelText(/Date of Log/i), { target: { value: '2024-12-01' } });
     fireEvent.change(screen.getByLabelText(/Symptoms/i), { target: { value: 'Headache' } });
     fireEvent.change(screen.getByLabelText(/Blood Pressure/i), { target: { value: '120/80' } });
@@ -48,10 +46,8 @@ describe('HealthLogsForm', () => {
     fireEvent.change(screen.getByLabelText(/Blood Glucose/i), { target: { value: '110' } });
     fireEvent.change(screen.getByLabelText(/Notes/i), { target: { value: 'Mild discomfort' } });
 
-    // Submit the form
     fireEvent.click(screen.getByRole('button', { name: /submit/i }));
 
-    // Wait for the mock saveHealthLog function to be called
     await waitFor(() => expect(saveHealthLog).toHaveBeenCalledWith({
       healthDate: '2024-12-01',
       symptoms: 'Headache',
@@ -77,10 +73,8 @@ describe('HealthLogsForm', () => {
 
     render(<HealthLogsForm healthLogToEdit={healthLogToEdit} handleDelete={mockHandleDelete} />);
 
-    // Simulate clicking the delete button
     fireEvent.click(screen.getByRole('button', { name: /delete health log/i }));
 
-    // Check if the mock handleDelete was called
     expect(mockHandleDelete).toHaveBeenCalledWith(healthLogToEdit);
   });
 });

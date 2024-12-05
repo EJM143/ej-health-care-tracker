@@ -8,10 +8,10 @@
  *    the joke when the button is clicked.
  */
 
+import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import FunZone from '../FunZone.jsx';
 
-// Mock the global fetch function
 global.fetch = jest.fn();
 
 describe('FunZone Component', () => {
@@ -20,14 +20,12 @@ describe('FunZone Component', () => {
     });
 
     test('displays loading message when fetching joke', async () => {
-        // Mock a delayed API response
         fetch.mockResolvedValueOnce({
             json: () => new Promise((resolve) => setTimeout(() => resolve({ joke: 'Why did the programmer quit his job? Because he didn’t get arrays!' }), 500)),
         });
 
         render(<FunZone />);
 
-        // Expect loading text to be shown initially
         expect(screen.getByText(/loading.../i)).toBeInTheDocument();
     });
 
@@ -37,11 +35,7 @@ describe('FunZone Component', () => {
         });
 
         render(<FunZone />);
-
-        // Wait for the joke to appear
         await waitFor(() => expect(screen.getByText('Why do programmers prefer dark mode? Because the light attracts bugs!')).toBeInTheDocument());
-
-        // Check if button is rendered
         expect(screen.getByRole('button', { name: /Get New Joke/i })).toBeInTheDocument();
     });
 
@@ -50,7 +44,6 @@ describe('FunZone Component', () => {
 
         render(<FunZone />);
 
-        // Wait for the error message to appear
         await waitFor(() => expect(screen.getByText(/Failed to fetch a joke. Please try again later./i)).toBeInTheDocument());
     });
 
@@ -61,17 +54,14 @@ describe('FunZone Component', () => {
 
         render(<FunZone />);
 
-        // Wait for the joke to be displayed
         await waitFor(() => expect(screen.getByText('Why do Java developers wear glasses? Because they don’t see sharp!')).toBeInTheDocument());
 
-        // Simulate clicking the button to fetch a new joke
         fetch.mockResolvedValueOnce({
             json: () => Promise.resolve({ joke: 'How many programmers does it take to change a light bulb? None. It’s a hardware problem.' }),
         });
 
         fireEvent.click(screen.getByRole('button', { name: /Get New Joke/i }));
 
-        // Wait for the new joke to appear
         await waitFor(() => expect(screen.getByText('How many programmers does it take to change a light bulb? None. It’s a hardware problem.')).toBeInTheDocument());
     });
 });

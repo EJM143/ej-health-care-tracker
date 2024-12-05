@@ -185,3 +185,13 @@
 margin: 10px; 
 border-radius: 8px; 
 }
+
+
+.delete-icon svg {
+  width: 24px;  /* Set the width of the SVG to make the icon smaller */
+  height: 24px; /* Set the height of the SVG to match */
+}
+
+
+
+

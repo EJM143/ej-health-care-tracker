@@ -1,7 +1,6 @@
 module.exports = {
-    presets: [
-      '@babel/preset-env',    // For modern JavaScript syntax
-      '@babel/preset-react',  // For React JSX support
-    ],
-  };
-  
+  presets: [
+    '@babel/preset-env',
+    '@babel/preset-react'
+  ],
+};

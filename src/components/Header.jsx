@@ -58,14 +58,12 @@ function Header() {
           
           {/* SVG Delete Account Button */}
           <button onClick={() => navigate('/delete-account')} className="delete-icon">
-            <svg xmlns="http://www.w3.org/2000/svg"width="24" height="24" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 6h18M9 6v14h6V6M5 6V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v2M10 11v6M14 11v6" />
             </svg>
           </button>
         </div>
       </div>
-
-
     </header>
   );
 }

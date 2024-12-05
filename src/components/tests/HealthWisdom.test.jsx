@@ -7,10 +7,10 @@
  *    and errors properly. 
  */
 
+import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import HealthWisdom from '../HealthWisdom.jsx';
 
-// Mock the global fetch function
 global.fetch = jest.fn();
 
 describe('HealthWisdom Component', () => {
@@ -19,14 +19,12 @@ describe('HealthWisdom Component', () => {
     });
 
     test('displays loading message when fetching advice', async () => {
-        // Mock a delay for the fetch call
         fetch.mockResolvedValueOnce({
             json: () => new Promise((resolve) => setTimeout(() => resolve({ slip: { advice: 'Stay hydrated!' } }), 500)),
         });
 
         render(<HealthWisdom />);
 
-        // Expect loading text to be shown initially
         expect(screen.getByText(/loading.../i)).toBeInTheDocument();
     });
 
@@ -37,10 +35,8 @@ describe('HealthWisdom Component', () => {
 
         render(<HealthWisdom />);
 
-        // Wait for the advice to appear
         await waitFor(() => expect(screen.getByText('Exercise regularly!')).toBeInTheDocument());
 
-        // Check if button is rendered
         expect(screen.getByRole('button', { name: /Get New Advice/i })).toBeInTheDocument();
     });
 
@@ -49,7 +45,6 @@ describe('HealthWisdom Component', () => {
 
         render(<HealthWisdom />);
 
-        // Wait for the error message to appear
         await waitFor(() => expect(screen.getByText(/Oops! Something went wrong/i)).toBeInTheDocument());
     });
 
@@ -60,17 +55,14 @@ describe('HealthWisdom Component', () => {
 
         render(<HealthWisdom />);
 
-        // Wait for the advice to be displayed
         await waitFor(() => expect(screen.getByText('Get enough sleep!')).toBeInTheDocument());
 
-        // Simulate clicking the button to fetch new advice
         fetch.mockResolvedValueOnce({
             json: () => Promise.resolve({ slip: { advice: 'Eat a balanced diet!' } }),
         });
 
         fireEvent.click(screen.getByRole('button', { name: /Get New Advice/i }));
 
-        // Wait for the new advice to appear
         await waitFor(() => expect(screen.getByText('Eat a balanced diet!')).toBeInTheDocument());
     });
 });

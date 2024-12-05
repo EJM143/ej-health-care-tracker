@@ -1,3 +1,12 @@
+/**
+ *      Name: Edale Miguel
+ *      Date: December 4, 2024
+ *      
+ *      This component allows users to confirm and delete their account. It handles the deletion process, 
+ *      displays error messages if the action fails, and redirects the user to the registration page upon success.
+ */
+
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { deleteAccount } from '../firebaseFunctions';
@@ -13,9 +22,9 @@ const DeleteAccountPage = () => {
         setLoading(true);
         setError('');
         try {
-            await deleteAccount(); // Call the Firebase function
+            await deleteAccount();
             alert('Your account has been deleted successfully.');
-            navigate('/register'); // Redirect to register or home
+            navigate('/register'); 
         } catch (err) {
             setError('Failed to delete account. Please try again.');
         } finally {

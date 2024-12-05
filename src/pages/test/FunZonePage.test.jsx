@@ -7,19 +7,18 @@
  *    to isolate the test and focus on the page structure.
  */
 
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import FunZonePage from '../FunZonePage.jsx'; // Correct path for FunZonePage.jsx
+import FunZonePage from '../FunZonePage.jsx'; 
 
-// Mock the FunZone component to focus the test on the page structure
 jest.mock('../../components/FunZone', () => {
-  return jest.fn(() => <div>Mocked FunZone Component</div>);  // Return mocked content here
+  return jest.fn(() => <div>Mocked FunZone Component</div>);  
 });
 
 describe('FunZonePage', () => {
   test('renders the "Joke of the Day" heading', () => {
     render(<FunZonePage />);
-    
-    // Check if the heading "Joke of the Day" is in the document
+
     const headingElement = screen.getByText(/Joke of the Day/i);
     expect(headingElement).toBeInTheDocument();
   });

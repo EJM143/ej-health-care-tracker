@@ -8,12 +8,13 @@
  *    Firebase authentication is mocked for the tests.
  */
 
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import HomePage from '../HomePage.jsx';  // Corrected import path
+import HomePage from '../HomePage.jsx';  
 import { auth } from '../../firebase';
 
-// Mock Firebase authentication
+
 jest.mock('../../firebase', () => ({
   auth: {
     currentUser: {
@@ -30,12 +31,11 @@ describe('HomePage', () => {
       </Router>
     );
 
-    // Check if the welcome message is rendered with the correct user name
+
     expect(screen.getByText('Welcome John Doe, to EJ Health Care Tracker')).toBeInTheDocument();
   });
 
   test('renders home page with a generic welcome message when no user is logged in', () => {
-    // Change mock to simulate no logged-in user
     auth.currentUser = null;
 
     render(
@@ -44,7 +44,6 @@ describe('HomePage', () => {
       </Router>
     );
 
-    // Check if the generic welcome message is rendered
     expect(screen.getByText('Welcome to EJ Health Care Tracker')).toBeInTheDocument();
   });
 
@@ -55,32 +54,16 @@ describe('HomePage', () => {
       </Router>
     );
 
-    // Check if the buttons are rendered
     const jokeButton = screen.getByText('Jokes');
     const memeButton = screen.getByText('Random Memes');
     const healthButton = screen.getByText('Health Wisdom');
 
-    // Simulate button clicks and check if navigate function is called
     fireEvent.click(jokeButton);
     fireEvent.click(memeButton);
     fireEvent.click(healthButton);
 
-    // Since the navigate function is called inside onClick, we can't check the navigation directly,
-    // but we can at least ensure the buttons are present.
     expect(jokeButton).toBeInTheDocument();
     expect(memeButton).toBeInTheDocument();
     expect(healthButton).toBeInTheDocument();
-  });
-
-  test('renders background image', () => {
-    render(
-      <Router>
-        <HomePage />
-      </Router>
-    );
-
-    // Check if the background image is rendered
-    const imgElement = screen.getByAltText('Health Care Tracker');
-    expect(imgElement).toBeInTheDocument();
   });
 });

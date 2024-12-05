@@ -8,7 +8,7 @@
  *    The `saveAppointment` function is mocked to avoid actual API calls during testing.
  */
 
-
+import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import AppointmentsForm from '../AppointmentsForm.jsx';
 import { saveAppointment } from '../../firebaseFunctions';

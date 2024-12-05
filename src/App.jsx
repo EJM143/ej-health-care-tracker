@@ -36,7 +36,6 @@ function App() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    console.log("App is rendered!");
     // Listen to auth state changes
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
