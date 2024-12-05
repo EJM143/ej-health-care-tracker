@@ -1,0 +1,187 @@
+/**
+ *    Name: Edale Miguel
+ *    Date: November 28, 2024
+ * 
+ *    This CSS file defines the styling for the header and navigation components of the web page.
+ *    It is designed to create an intuitive and user-friendly experience with clear navigation,
+ *    visually distinct elements, and a responsive layout.
+ */
+
+/*  Header Styles */
+.header {
+  background-color: #1c1c1c; 
+  color: white;
+  padding: 20px 20px 0px; 
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  flex-wrap: wrap; 
+}
+
+/* Logo Styles */
+.header .logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.header .logo-img {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.header .logo-text {
+  color: white;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* Navigation Links */
+.header nav ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav ul li {
+  margin-right: 20px;
+}
+
+.header nav ul li a {
+  color: #FFD700; 
+  text-decoration: none;
+}
+
+.header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Authentication Links */
+.auth-links {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+  align-items: flex-end; 
+}
+
+.auth-sign-in-register a {
+  color: #FFD700;
+  text-decoration: none;
+}
+
+.auth-sign-in-register a:hover {
+  text-decoration: underline;
+}
+
+.logout-button {
+  background-color: #FFD700;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: black;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 20px;
+}
+
+
+.logout-button:hover {
+  background-color: #FFF5B3;
+}
+
+/* Buttons under the navigation */
+.button-row {
+  display: flex;
+  justify-content: left; 
+  gap: 15px; 
+  width: 100%;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  
+  .header {
+    padding: 10px;
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .header .logo {
+    margin-bottom: 10px; 
+  }
+
+  .header nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header nav ul li {
+    margin: 10px 0;
+  }
+
+  .auth-links {
+    align-items: center;
+    margin-top: 20px; 
+  }
+
+  .auth-sign-in-register {
+    flex-direction: column; 
+    gap: 5px;
+  }
+}
+
+/* Fun Zone Button Style */
+.fun-zone-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #FFD700;
+  color: black;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Fun Zone Button */
+
+.button-row {
+  display: flex;
+  justify-content: center; 
+  margin-top: 20px; 
+}
+
+/* Style for the button itself */
+.fun-zone-button {
+  padding: 12px 24px;
+  background-color: #E6B800; 
+  color: black;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.fun-zone-button:hover {
+  background-color: #CDA600;
+}
+
+/* Delete Account Icon */
+
+.delete-icon {
+  background-color: #FFD700;
+  border-radius: 8px;       
+  padding: 10px;          
+  border: none;             
+}
+
+.delete-icon:hover {
+  background-color: #ffcc00;  
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-btn {
+margin: 10px; 
+border-radius: 8px; 
+}

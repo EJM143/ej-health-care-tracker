@@ -1,0 +1,478 @@
+/**
+ *    Name: Edale Miguel
+ *    Date: November 28, 2024
+ * 
+ *    This CSS file styles various components of the website. The design focuses on a clean, modern, 
+ *    and interactive user experience with smooth hover effects and responsive elements.
+ */
+ 
+ .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+ 
+ /* Home Page Style */
+ .home-page {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+}
+
+.home-page h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.home-page p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+.home-page a {
+  color: #FFD700; 
+  text-decoration: none;
+}
+
+.home-page a:hover {
+  text-decoration: underline; 
+}
+
+/* Home Page Pic Style */
+.home-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Authentication page styles */
+.authentication-page {
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.authentication-page h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.description {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #E6B800;
+  color: black;
+  border: none;
+}
+
+button:hover {
+  background-color: #CDA600;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+/* Navigation */
+nav {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav li a:hover {
+  color: #f0a500;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #FFF5E1; 
+  color: #333; 
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+  border-top: 2px solid #D4AF37; 
+  border-bottom: 2px solid #D4AF37; 
+}
+
+h3 {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.5em;
+}
+
+/* Popup Styling */
+.popup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: popup-animation 1s forwards;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@keyframes popup-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.popup h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.popup p {
+  margin-top: 8px;
+  font-size: 18px;
+  color: #555;
+}
+
+.popup.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Placeholder Text Styling */
+input::placeholder,
+textarea::placeholder {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+}
+
+/* Footer Style */
+.footer {
+  position: relative; 
+  bottom: 0;
+  left: 0; 
+  width: 100%; 
+  background-color: #333; 
+  color: white; 
+  text-align: center;
+  padding: 10px 0; 
+  margin-top: 20px; 
+  font-size: 14px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+  z-index: 1000; 
+}
+
+.footer p {
+  color: white; 
+  font-size: 14px;
+}
+
+
+
+
+/* FunZone Style */
+.fun-zone {
+  background: linear-gradient(135deg, #fff 30%, #f9d835 70%); 
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  color: #333; 
+  font-family: 'Arial', sans-serif;
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+ 
+}
+
+.fun-zone h2 {
+  color: #333; 
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.fun-zone p {
+  color: #555; 
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+
+.fun-zone .error {
+  color: #e74c3c; 
+}
+
+.fun-zone .loading {
+  color: #f39c12; 
+}
+
+.fun-zone-page {
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 100px;
+  margin-top: 30px;
+}
+
+.fun-zone-button {
+  border-radius: 8px;
+}
+
+ /* Random Meme */
+.meme-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100vh; 
+  overflow: hidden;
+  background-color: rgb(241, 220, 151);
+}
+
+.meme-header {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.meme-image {
+  max-width: 100%;
+  max-height: 80%;
+  object-fit: contain; 
+  margin-bottom: 20px; 
+}
+
+.meme-name {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%); 
+  margin-bottom: 20px;
+  z-index: 10; 
+  border-radius: 10px;
+}
+
+.random-meme-button {
+  padding: 15px 30px;
+  background-color: rgb(192, 144, 0);  
+  color: white;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.random-meme-button:hover {
+  background-color: rgb(169, 130, 0);
+}
+
+
+/* Not Found */
+.not-found-container {
+  text-align: center;
+  padding: 50px;
+}
+
+.not-found-message {
+  font-size: 2rem;
+  color: #333;
+
+}
+
+.not-found-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f4b400;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.not-found-button:hover {
+  background-color: #f5a300;
+}
+
+/* Delete Account */
+.delete-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #f44336; 
+  position: relative;
+}
+
+.delete-icon:hover {
+  opacity: 0.7;
+}
+
+/* Style for the tooltip */
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  bottom: 30px; 
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Delete Account Page */
+
+.delete-account-page {
+  background-color: #f5f5dc; 
+  color: black;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100vh; 
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; 
+  margin-top: 20px; 
+}
+
+.actions {
+  margin-top: 1rem;
+}
+
+.confirm-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.cancel-button {
+  background-color: #FFD700;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
